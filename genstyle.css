@@ -1,0 +1,115 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background:#F6F9FC;
+  }
+  canvas {
+    display: block;
+  }
+  
+  *
+  {font-family: 'Inter', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'soehne';
+    src: url(../fonts/soehne-fett.woff2) format('woff2'),
+     url(../fonts/soehne-kraftig.woff2)format('woff2');
+  }
+  
+  #layout {
+    margin: 50px;
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    box-sizing: border-box;
+  
+    
+  }
+  #canvas-parent {
+    display: flex;
+    height: min(50vh, 50vw);
+    width: min(50vh, 50vw);
+  }
+  
+  #controls {
+    display: inline-block;
+  
+  }
+  
+  .control-title {
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 10px;
+  
+  }
+  
+  #bg-color {
+    padding-top: 25px;
+  
+  }
+  
+  #gridcontrol {
+     padding-top: 25px;
+  }
+  
+  /* CSS for Slider Grid option control  */
+  input[type="range"]::-webkit-slider-runnable-track {
+    display: inline-flex;
+    height: 0.2rem;
+    background: #000000;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  
+  /* Thumb Styles for: Chrome, Safari, Opera, and Edge */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    border: 5px;
+    border-radius: 2rem;
+    margin-top: -0.4rem; /* Centers thumb on the track */
+    background-color: #000000;
+        
+  }
+  
+  
+  #bg-color button {
+    display: inline-flex;
+    height: 40px;
+    width: 40px;
+    border-radius: 2rem;
+    color: transparent;
+    cursor: pointer;
+    border-color: #000000;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  #b1 {
+    background-color: #5352ed
+  }
+  
+  #b2 {
+    background-color: #e8f3e8
+    
+  }
+  
+  #b3{
+    background-color: #49c5b6
+  }
+  
+  #imageUpload {
+    padding-top: 25px;
+    display: block;
+  }
+  
+  .downloadimage {
+     padding-top: 25px;
+  }
+  #saveButton {
+    cursor: pointer;
+    padding-top: 25px;
+  }
