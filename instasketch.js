@@ -5,7 +5,7 @@ let margin;
 // let instaCanvas;
 let bgColour = "transparent";
 let gridOption = 2;
-let currentText;
+let currentText = "default text";
 let img;
 let maskCanvas;
 let input;
@@ -83,20 +83,33 @@ function draw() {
 
   // instaCanvas.background(255, 0, 0);
   gridOption = gridSlider.value;
+
   stroke(0);
   strokeWeight(3);
 
   // grid
   makeGrid();
 
-  // image
+  makeText(50);
+}
 
+function makeText(tSize) {
   strokeWeight(0);
-  textSize(50);
-  text(currentText, 50, 50);
+  textSize(tSize);
+  fill(10);
+  textAlign(LEFT, BOTTOM);
+  if (gridOption == 1) {
+    text(currentText, margin + 10, margin + tSize);
+  } else if (gridOption == 2) {
+    textAlign(CENTER, CENTER);
+    text(currentText, cWidth / 2, cWidth / 2);
+  } else if (gridOption == 3) {
+    text(currentText, cWidth / 2 + margin + 10, margin + tSize);
+  }
 }
 
 function makeGrid() {
+  fill(255);
   // make a new image from the uploaded/default image
   if (img && gridOption != 3) {
     let iWidth = img.width;
