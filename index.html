@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Masterworks Instagram Generator</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <!-- p5js library -->
 
@@ -13,6 +14,7 @@
 
     <!--Stylesheets-->
     <link rel="stylesheet" href="genstyle.css" />
+    <link rel="stylesheet" href="header.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,13 +22,28 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+  
   </head>
   <body>
     <header class="header">
-      <div class="top-section">
-        <img class="masterworks-logo" src="Masterworks_Logo.svg" />
+      <div class="left-section">
+        <img class="youtube-logo" src="Masterworks_Logo.svg" />
+      </div>
+    </div>
+  
+      <div class="right-section">
+        <div class="upload-icon-container">
+         
+        </div>
+         
+    
+        <img
+          class="current-user-picture"
+          src="User_icon_darkblue.jpg"
+        />
       </div>
     </header>
+
     <main>
       <div id="layout">
         <div id="canvas-parent"></div>
@@ -37,6 +54,7 @@
             <button id="b1" value="#5352ed">Indigo</button>
             <button id="b2" value="#e8f3e8">Mint</button>
             <button id="b3" value="#49c5b6">Teal</button>
+            <button id="b4" value="#FFFFFF">White</button>
           </div>
 
           <div id="gridcontrol">

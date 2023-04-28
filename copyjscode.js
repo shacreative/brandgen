@@ -135,9 +135,7 @@ function makeGrid() {
     }
     noFill();
     rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
-  } 
-  
-  else if (gridOption == 2) {
+  } else if (gridOption == 2) {
     rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
     let centerX = cWidth / 2;
     let centerY = cHeight / 2;
