@@ -21,17 +21,14 @@ html, body {
 
   .header {
     height: 55px;
-  
-    display: flex;
+    display: block;
     flex-direction: row;
     justify-content: space-between;
-  
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-  
     background-color: white;
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -39,7 +36,7 @@ html, body {
   }
   
   .top-section {
-    display: flex;
+    display: inline;
     align-items: center;
   }
   
@@ -54,7 +51,10 @@ html, body {
 
   
   #layout {
-    margin: 50px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
     display: grid;
     column-gap: 50px;
     grid-template-columns: 1fr 1fr;
