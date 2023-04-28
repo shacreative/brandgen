@@ -16,6 +16,42 @@ html, body {
     src: url(../fonts/soehne-fett.woff2) format('woff2'),
      url(../fonts/soehne-kraftig.woff2)format('woff2');
   }
+
+
+
+  .header {
+    height: 55px;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  
+    background-color: white;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(228, 228, 228);
+  }
+  
+  .top-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .masterworks-logo {
+    height: 60px;
+  }
+  
+  
+  
+
+
   
   #layout {
     margin: 50px;

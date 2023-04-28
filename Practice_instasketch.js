@@ -8,6 +8,7 @@ let gridOption = 2;
 let currentText;
 let img;
 let input;
+
 //let uploadedImage;
 
 let redButton = document.getElementById("b1");
