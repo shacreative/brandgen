@@ -54,6 +54,9 @@ saveButton.addEventListener("click", () => {
 
 calculateCanvas();
 
+function preload() {
+  img = loadImage("images/1080-gradient.jpg");
+}
 function setup() {
   margin = cWidth / 27;
   pixelDensity(1);
@@ -69,22 +72,33 @@ function setup() {
 
 function draw() {
   background(bgColour);
-  if (img) image(img, 0, 0);
+
   instaCanvas.background(255, 0, 0);
   gridOption = gridSlider.value;
   stroke(0);
   strokeWeight(3);
 
+  // grid
+  makeGrid();
+
+  // image
+  if (img)
+    image(img, 0, 0, width, height, 0, 0, img.width, img.height, COVER, CENTER);
+
+  strokeWeight(0);
+  textSize(50);
+  text(currentText, 50, 50);
+}
+
+function makeGrid() {
   if (gridOption == 1) {
     rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
-    
   } else if (gridOption == 2) {
     rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
     let centerX = cWidth / 2;
     let centerY = cHeight / 2;
     let circleRadius = min(cWidth, cHeight) / 2 - margin * 2;
     ellipse(centerX, centerY, circleRadius * 2, circleRadius * 2);
-
   } else if (gridOption == 3) {
     rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
     line(margin, cHeight / 1.4, cWidth - margin, cHeight / 1.4);
@@ -105,12 +119,7 @@ function draw() {
       cHeight - margin
     );
   }
-
-  strokeWeight(0);
-  textSize(50);
-  text(currentText, 50, 50);
 }
-
 function windowResized() {
   calculateCanvas();
   resizeCanvas(cWidth, cHeight);
