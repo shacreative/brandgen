@@ -55,8 +55,10 @@ canvas {
 }
 #canvas-parent {
   display: flex;
-  height: max(50vh, 50vw);
-  width: max(50vh, 50vw);
+  /* height: max(50vh, 50vw);
+  width: max(50vh, 50vw); */
+  height: 1080px;
+  width: 1080px;
 }
 
 #controls {

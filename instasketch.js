@@ -2,12 +2,16 @@ let myCanvas;
 let cWidth;
 let cHeight;
 let margin;
-let instaCanvas;
+// let instaCanvas;
 let bgColour = "transparent";
 let gridOption = 2;
 let currentText;
 let img;
+let maskCanvas;
 let input;
+let mask;
+let imageFile;
+let newImage;
 //let uploadedImage;
 
 let redButton = document.getElementById("b1");
@@ -46,23 +50,26 @@ blueButton.addEventListener("click", (e) => {
 });
 
 saveButton.addEventListener("click", () => {
-  let combinedCanvas = instaCanvas;
-  combinedCanvas.image(myCanvas, 0, 0);
-  combinedCanvas.image(instaCanvas, 0, 0);
-  save(combinedCanvas, "MasterWorks_1080x1080.jpg");
+  // let combinedCanvas = instaCanvas;
+  // combinedCanvas.image(myCanvas, 0, 0);
+  // combinedCanvas.image(instaCanvas, 0, 0);
+  // save(combinedCanvas, "MasterWorks_1080x1080.jpg");
+  save(myCanvas, "MasterWorks_1080x1080.jpg");
 });
 
 calculateCanvas();
 
 function preload() {
   img = loadImage("images/1080-gradient.jpg");
+  // console.log("preloaded image", img);
 }
 function setup() {
   margin = cWidth / 27;
   pixelDensity(1);
   myCanvas = createCanvas(cWidth, cHeight);
   myCanvas.parent("canvas-parent");
-  instaCanvas = createGraphics(1080, 1080);
+  maskCanvas = createGraphics(cWidth, cHeight);
+  // instaCanvas = createGraphics(1080, 1080);
 
   input = createFileInput(handleFile);
   // input.position(0, 0);
@@ -72,8 +79,9 @@ function setup() {
 
 function draw() {
   background(bgColour);
+  maskCanvas.clear();
 
-  instaCanvas.background(255, 0, 0);
+  // instaCanvas.background(255, 0, 0);
   gridOption = gridSlider.value;
   stroke(0);
   strokeWeight(3);
@@ -82,8 +90,6 @@ function draw() {
   makeGrid();
 
   // image
-  if (img)
-    image(img, 0, 0, width, height, 0, 0, img.width, img.height, COVER, CENTER);
 
   strokeWeight(0);
   textSize(50);
@@ -91,17 +97,101 @@ function draw() {
 }
 
 function makeGrid() {
+  // make a new image from the uploaded/default image
+  if (img && gridOption != 3) {
+    let iWidth = img.width;
+    let iHeight = img.height;
+    let iRatio = iWidth / iHeight;
+
+    if (iWidth > iHeight) {
+      iHeight = height;
+      iWidth = iHeight * iRatio;
+    } else {
+      iWidth = width;
+      iHeight = iWidth / iRatio;
+    }
+    newImg = createImage(width, height);
+    newImg.copy(img, 0, 0, img.width, img.height, 0, 0, iWidth, iHeight);
+  }
   if (gridOption == 1) {
+    // draw mask and circle
+    maskCanvas.rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
+    if (img) {
+      newImg.mask(maskCanvas);
+      image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
+    }
+    noFill();
     rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
   } else if (gridOption == 2) {
     rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
     let centerX = cWidth / 2;
     let centerY = cHeight / 2;
     let circleRadius = min(cWidth, cHeight) / 2 - margin * 2;
-    ellipse(centerX, centerY, circleRadius * 2, circleRadius * 2);
+
+    // draw mask and circle
+    maskCanvas.circle(centerX, centerY, circleRadius * 2);
+    if (img) {
+      newImg.mask(maskCanvas);
+      image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
+    }
+    noFill();
+    circle(centerX, centerY, circleRadius * 2);
   } else if (gridOption == 3) {
-    rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
-    line(margin, cHeight / 1.4, cWidth - margin, cHeight / 1.4);
+    // draw mask and circle
+    maskCanvas.rect(
+      margin + (cWidth - margin * 2) / 2,
+      margin + (cWidth - margin * 2) / 2,
+      (cWidth - margin * 2) / 2,
+      (cHeight - margin * 2) / 2
+    );
+    if (img) {
+      let iWidth = img.width;
+      let iHeight = img.height;
+      let iRatio = iWidth / iHeight;
+
+      if (iWidth > iHeight) {
+        iHeight = cWidth - margin * 2;
+        iWidth = iHeight * iRatio;
+      } else {
+        iWidth = cWidth - margin * 2;
+        iHeight = iWidth / iRatio;
+      }
+      newImg = createImage(width, height);
+      newImg.copy(
+        img,
+        0,
+        0,
+        img.width,
+        img.height,
+        margin + (cWidth - margin * 2) / 4,
+        margin + (cWidth - margin * 2) / 4,
+        iWidth,
+        iHeight
+      );
+      newImg.mask(maskCanvas);
+      image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
+    }
+    noFill();
+    rect(margin, margin, (cWidth - margin * 2) / 2, (cHeight - margin * 2) / 2);
+    rect(
+      margin + (cWidth - margin * 2) / 2,
+      margin,
+      (cWidth - margin * 2) / 2,
+      (cHeight - margin * 2) / 2
+    );
+    rect(
+      margin,
+      margin + (cWidth - margin * 2) / 2,
+      (cWidth - margin * 2) / 2,
+      (cHeight - margin * 2) / 2
+    );
+    rect(
+      margin + (cWidth - margin * 2) / 2,
+      margin + (cWidth - margin * 2) / 2,
+      (cWidth - margin * 2) / 2,
+      (cHeight - margin * 2) / 2
+    );
+    // line(margin, cHeight / 1.4, cWidth - margin, cHeight / 1.4);
     // rect(margin, margin, cWidth - margin * 2, cHeight / 1.44);
     // rect(margin, cHeight / 1.4, cWidth - margin * 2, cHeight / 4);
   } else if (gridOption == 4) {
@@ -139,8 +229,10 @@ function colorButton(e) {
 function handleFile(file) {
   print(file);
   if (file.type === "image") {
-    img = createImg(file.data, "");
-    img.hide();
+    // let img = createImg(file.data, "");
+    img = loadImage(file.data, (img) => {
+      image(img, 0, 0);
+    });
   } else {
     img = null;
   }
