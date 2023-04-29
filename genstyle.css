@@ -3,6 +3,8 @@ body {
   margin: 0;
   padding: 0;
   background: #f6f9fc;
+  appearance: none;
+  font-family: 'Inter', sans-serif;
 }
 canvas {
   display: block;
@@ -68,7 +70,7 @@ canvas {
   border-color: rgba(63,63,55,.15);
 }
 
-.control-panel-divder1{
+/* .control-panel-divder1{
   display: block;
   width: auto;
   align-items: center;
@@ -76,7 +78,7 @@ canvas {
   border-width: 0.05rem;
   border-color: #878787;
 
-}
+} */
 
 #layout {
   margin-top: 60px;
@@ -103,7 +105,7 @@ canvas {
 
 .control-panel-grid {
   display: grid;
-  grid-template-rows: 180px 180px 180px 180px;
+  grid-template-rows: 190px 210px 150px 170px 180px 110px;
   background-color: #ffff;
   border-radius: 1rem;
   box-shadow: 0 2px 4px 0 rgba(63,63,55,.15);
@@ -114,20 +116,32 @@ canvas {
 
 }
 
-.control-title{
+.control-title, .intro-title {
   display: block;
   font-family: "soehne";
   font-size: 13pt;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 15px;
+  margin-bottom: 35px;
   align-items: center;
   border-bottom: 2px solid #e8e8e8 ;
   letter-spacing: .1px;
-  padding: 0 0 0.75rem
+  padding: 0 0 0.60rem
+}
+
+.intro-title {
+  display: block;
+  font-family: "TiemposHeadline";
+  font-size: 24pt;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  align-items: center;
+  border-bottom: 2px solid #e8e8e8 ;
+  letter-spacing: .1px;
+  padding: 0 0 0.60rem
 }
 
 
-input#p5input:before {
+/* input#p5input:before {
   content: 'Choose a file (PNG or JPG)';
   display: block;
   background: #5352ed;
@@ -137,39 +151,58 @@ input#p5input:before {
   border-radius: 3px;
   cursor: pointer;
   margin-bottom: 10px;
+  
 }
-
 
 input#p5input:hover:before {
-  background: #3742fa;
-}
+  background: #3742fa; 
+}*/
 
 input#p5input::file-selector-button {
-  display: none;
+  
+  content: 'Choose a file (PNG or JPG)';
+  display: block;
+  background: #5352ed;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  padding: 15px 15px 15px 15px;
+  border-radius: 2px;
+  border: 0px solid;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 10px;
 }
 
- .upload-tip {
+input#p5input:hover::file-selector-button {
+   background: #3742fa;
+}
+
+#intro-text {
   font-family: 'Inter', sans-serif;
   font-size: 9pt;
+  line-height: 15pt;
+  letter-spacing: 0.02em;
   margin: none;
   color: #878787;
 
 }
 
-#bg-control, #file-control {
-  border: 1px solid var(--color-iron);
-  border-radius: 0.5rem;
+
+
+#gridSlider{
+  display: block;
+  width: 100%;
+  
+}
+
+#file-control{
+  display: block;
+  width: 100%;
   
 }
 
 
-
-
-/* Track Styles for: Firefox */
-input[type="range"]::-moz-range-track {
-  background: #000000;
-  height: 0.2rem;
-}
 
 /* CSS for Slider Grid option control  */
 input[type="range"]::-webkit-slider-runnable-track {
@@ -181,9 +214,16 @@ input[type="range"]::-webkit-slider-runnable-track {
   cursor: pointer;
 }
 
+/* Track Styles for: Firefox */
+input[type="range"]::-moz-range-track {
+  background: #000000;
+  height: 0.18rem;
+  width: auto;
+}
+
 
 /* Thumb Styles for: Chrome, Safari, Opera, and Edge */
-input[type="range"]::-webkit-slider-thumb {
+input[id="gridSlider"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 5px;
   border-radius: 2rem;
@@ -195,21 +235,24 @@ input[type="range"]::-webkit-slider-thumb {
 input[type=range]:hover::-webkit-slider-thumb {
   background-color:  #3742fa;
   cursor: pointer;
+  transition-duration: 0.2s;
 }
 
 
 /* Thumb Styles for: Firefox */
 input[type="range"]::-moz-range-thumb {
   border: none; /*Removes extra border that FF applies*/
-  border-radius: 2rem; /*Removes default border-radius that FF applies*/
-  background-color: #000000;
+  border-radius: 0.4rem; /*Removes default border-radius that FF applies*/
+  background-color: #5352ed;
   height: 2rem;
-  width: 2rem;
+  width: 1.5em;
 }
 
+/* Hover Styles for: Firefox */
 input[type=range]:hover::-moz-range-thumb {
   background:  #3742fa;
   cursor: pointer;
+  transition-duration: 0.2s;
 }
 
 
@@ -218,51 +261,96 @@ input[type=range]:hover::-moz-range-thumb {
   display: inline-flex;
   height: 40px;
   width: 40px;
-  border-radius: 2rem;
   color: transparent;
+  border-radius: 2rem;
   cursor: pointer;
-  border-color: #000000;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
+
+
 #bg-color {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
 }
 
-#b1 {
+#b1{
   background-color: #5352ed;
+  border: 0px solid;
 }
 
 #b2 {
   background-color: #96a1eb;
+  border: 0px solid;
 }
 
 #b3 {
   background-color: #49c5b6;
+  border: 0px solid;
 }
 
 #b4 {
   background-color: #e8f3e8;
+  border: 0px solid;
 }
 
 #b5 {
   background-color: #ffffff;
+  border: 1px solid #e1e1e1;
 }
 
 #b6 {
   background-color: #000000;
+  border: 0px solid;
 }
 
-
-.downloadimage {
-  padding: 25px;
+#b1:hover, #b2:hover, #b3:hover,#b4:hover {
+  border: 1.5px solid #222222
 }
+
+#b5:hover{
+  border: 1.5px solid #222222
+}
+
+#b6:hover{
+  border: 1.5px solid #e1e1e1
+}
+
+input[type=text], select {
+  appearance: none;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  background-color: #f7f9fc;
+  border: 1px solid #e1e1e1;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+input[type=text], select, textarea{
+  content: 'Enter Text';
+  rows: "10";
+}
+
 #saveButton {
+  display: block;
+  background: #5352ed;
+  color: #fff;
+  text-align: center;
   cursor: pointer;
-  padding-top: 25px;
+  padding: 20px 30px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  width: 100%;
+
 }
 
-
+#saveButton:hover {
+  background: #3742fa;
+} 

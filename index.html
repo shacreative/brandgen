@@ -56,6 +56,14 @@
 
         <div class="control-section">
           <div class="control-panel-grid">
+            <div id="intro-control">
+              <div class="intro-title">Welcome</div>
+              <p id="intro-text">
+                Use this control panel to generate your <br />
+                branded social media image. Images save at 1080 x 1080 pixels.
+              </p>
+            </div>
+
             <div id="file-control">
               <div class="control-title">Image</div>
               <div id="file-input-parent"></div>
@@ -66,9 +74,7 @@
 
             <div id="gridcontrol">
               <div class="control-title">Grid</div>
-              <div class="slidecontainer">
-                <input type="range" min="1" max="3" id="gridSlider" />
-              </div>
+              <input type="range" min="1" max="4" id="gridSlider" />
             </div>
 
             <div id="bg-control">
@@ -95,10 +101,13 @@
                 size="10"
               />
             </div>
-          </div>
 
-          <div class="downloadimage">
-            <button id="saveButton">Download Image</button>
+            <div id="file-control">
+              <div class="control-title">Download</div>
+              <div>
+                <button id="saveButton">Download Image</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

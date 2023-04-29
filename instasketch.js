@@ -8,7 +8,7 @@ let gridOption = 3;
 let currentText = "Enter text";
 let img;
 let maskCanvas;
-let input;
+//let input;
 let mask;
 let imageFile;
 let newImage;
@@ -76,7 +76,7 @@ saveButton.addEventListener("click", () => {
 calculateCanvas();
 
 function preload() {
-  img = loadImage("images/1080-gradient.jpg");
+  img = loadImage("images/gen-default-image.jpg");
   // console.log("preloaded image", img);
 }
 function setup() {
@@ -167,6 +167,8 @@ function makeGrid() {
     }
     noFill();
     circle(centerX, centerY, circleRadius * 2);
+
+  
   } else if (gridOption == 3) {
     // draw mask and circle
     maskCanvas.rect(
@@ -241,6 +243,7 @@ function makeGrid() {
     );
   }
 }
+
 function windowResized() {
   calculateCanvas();
   resizeCanvas(cWidth, cHeight);
