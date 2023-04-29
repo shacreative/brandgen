@@ -103,7 +103,7 @@ canvas {
 
 .control-panel-grid {
   display: grid;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: 180px 180px 180px 180px;
   background-color: #ffff;
   border-radius: 1rem;
   box-shadow: 0 2px 4px 0 rgba(63,63,55,.15);
@@ -118,6 +118,7 @@ canvas {
   display: block;
   font-family: "soehne";
   font-size: 13pt;
+  margin-top: 30px;
   margin-bottom: 30px;
   align-items: center;
   border-bottom: 2px solid #e8e8e8 ;
@@ -125,48 +126,93 @@ canvas {
   padding: 0 0 0.75rem
 }
 
-#file-input-parent {
-  border: 1px #e8e8e8 ;
 
+input#p5input:before {
+  content: 'Choose a file (PNG or JPG)';
+  display: block;
+  background: #5352ed;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
-#file-input-parent::file-selector-button {
-    font-weight: bold;
-    color: dodgerblue;
-    padding: 0.5em;
-    border: thin solid grey;
-    border-radius: 3px;
+
+input#p5input:hover:before {
+  background: #3742fa;
+}
+
+input#p5input::file-selector-button {
+  display: none;
+}
+
+ .upload-tip {
+  font-family: 'Inter', sans-serif;
+  font-size: 9pt;
+  margin: none;
+  color: #878787;
+
 }
 
 #bg-control, #file-control {
   border: 1px solid var(--color-iron);
   border-radius: 0.5rem;
-  margin-top: 40px;
+  
 }
 
 
-#gridcontrol {
-  padding-top: 25px;
+
+
+/* Track Styles for: Firefox */
+input[type="range"]::-moz-range-track {
+  background: #000000;
+  height: 0.2rem;
 }
 
 /* CSS for Slider Grid option control  */
 input[type="range"]::-webkit-slider-runnable-track {
-  display: inline-flex;
+  display: inline;
   height: 0.2rem;
+  width: 2rem;
   background: #000000;
   outline: none;
   cursor: pointer;
 }
 
+
 /* Thumb Styles for: Chrome, Safari, Opera, and Edge */
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
+  -webkit-appearance: none;
   border: 5px;
   border-radius: 2rem;
   margin-top: -0.4rem; /* Centers thumb on the track */
-  background-color: #000000;
+  background-color: #6ced52;
+  z-index: 1;
 }
+
+input[type=range]:hover::-webkit-slider-thumb {
+  background-color:  #3742fa;
+  cursor: pointer;
+}
+
+
+/* Thumb Styles for: Firefox */
+input[type="range"]::-moz-range-thumb {
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 2rem; /*Removes default border-radius that FF applies*/
+  background-color: #000000;
+  height: 2rem;
+  width: 2rem;
+}
+
+input[type=range]:hover::-moz-range-thumb {
+  background:  #3742fa;
+  cursor: pointer;
+}
+
+
 
 #bg-color button {
   display: inline-flex;
@@ -218,3 +264,5 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
   padding-top: 25px;
 }
+
+
