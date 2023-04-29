@@ -14,9 +14,12 @@ let imageFile;
 let newImage;
 //let uploadedImage;
 
-let redButton = document.getElementById("b1");
-let greenButton = document.getElementById("b2");
-let blueButton = document.getElementById("b3");
+let indigoButton = document.getElementById("b1");
+let lilacButton = document.getElementById("b2");
+let tealButton = document.getElementById("b3");
+let mintButton = document.getElementById("b4");
+let whiteButton = document.getElementById("b5");
+let blackButton = document.getElementById("b6");
 let gridSlider = document.getElementById("gridSlider");
 let textInput = document.getElementById("textInput");
 // let imageUpload = document.getElementById("imageUpload");
@@ -39,15 +42,28 @@ textInput.addEventListener("input", (e) => {
   currentText = e.target.value;
 });
 
-redButton.addEventListener("click", (e) => {
+indigoButton.addEventListener("click", (e) => {
   colorButton(e);
 });
-greenButton.addEventListener("click", (e) => {
+
+lilacButton.addEventListener("click", (e) => {
   colorButton(e);
 });
-blueButton.addEventListener("click", (e) => {
+tealButton.addEventListener("click", (e) => {
   colorButton(e);
 });
+
+mintButton.addEventListener("click", (e) => {
+  colorButton(e);
+});
+
+whiteButton.addEventListener("click", (e) => {
+  colorButton(e);
+});
+blackButton.addEventListener("click", (e) => {
+  colorButton(e);
+});
+
 
 saveButton.addEventListener("click", () => {
   // let combinedCanvas = instaCanvas;

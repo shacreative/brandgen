@@ -8,49 +8,142 @@ canvas {
   display: block;
 }
 
-* {
-  font-family: "Inter", sans-serif;
-}
 
 @font-face {
   font-family: "soehne";
-  src: url(./fonts/soehne-fett.woff2) format("woff2"),
-    url(./fonts/soehne-kraftig.woff2) format("woff2");
+  src: url(./fonts/soehne-fett.woff2) format("woff2");
+}
+
+  @font-face {
+  font-family: "soehne";
+    src: url(../fonts/soehne-kraftig.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "TiemposHeadline";
+  src: url(../fonts/TiemposHeadline/tiempos-headline-medium.woff2) format("woff2")}
+
+  @font-face {
+    font-family: "TiemposHeadline";
+    src: url(./fonts/TiemposHeadline/tiempos-headline-light.woff2) format("woff2");
 }
 
 
+.intro-section {
+  display: block;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 70px;
+  background-color: #e8f3e8;
+  box-sizing: border-box;
+}
+
+.intro-container
+{
+  margin-left: 70px;
+  margin-right: 70px;
+  padding-top: 130px;
+  background-color: #e8f3e8;
+
+}
+
+
+#h1{
+  display: block;
+  font-family: 'TiemposHeadline', serif;
+  font-weight: 600;
+  font-size: 45px;
+  color: #222222;
+  text-align: center;
+}
+
+.divider1 {
+  display: block;
+  width: auto;
+  margin-left: 70px;
+  margin-right: 70px;
+  align-items: center;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: rgba(63,63,55,.15);
+}
+
+.control-panel-divder1{
+  display: block;
+  width: auto;
+  align-items: center;
+  border-style: solid;
+  border-width: 0.05rem;
+  border-color: #878787;
+
+}
 
 #layout {
-  margin-top: 180px;
+  margin-top: 60px;
   margin-bottom: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 70px;
+  margin-right: 70px;
   display: grid;
   column-gap: 50px;
   grid-template-columns: 1fr 1fr;
   box-sizing: border-box;
+
 }
 #canvas-parent {
-  display: flex;
+  display: inline-block;
   /* height: max(50vh, 50vw);
   width: max(50vh, 50vw); */
   height: 1080px;
   width: 1080px;
+  border-radius: 0.5rem;
+  padding: 0.15rem;
+  box-shadow: 0 2px 4px 0 rgba(63,63,55,.15);
+    
 }
 
-#controls {
-  display: inline-block;
+.control-panel-grid {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  background-color: #ffff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px 0 rgba(63,63,55,.15);
+  padding: 0.5rem 2rem;
+  height: 1070px;
+  width: 280px;
+  
+
 }
 
-.control-title {
-  font-size: 20px;
-  font-weight: 700;
-  padding-bottom: 10px;
+.control-title{
+  display: block;
+  font-family: "soehne";
+  font-size: 13pt;
+  margin-bottom: 30px;
+  align-items: center;
+  border-bottom: 2px solid #e8e8e8 ;
+  letter-spacing: .1px;
+  padding: 0 0 0.75rem
 }
 
-#bg-color {
-  padding-top: 25px;
+#file-input-parent {
+  border: 1px #e8e8e8 ;
+
 }
+
+#file-input-parent::file-selector-button {
+    font-weight: bold;
+    color: dodgerblue;
+    padding: 0.5em;
+    border: thin solid grey;
+    border-radius: 3px;
+}
+
+#bg-control, #file-control {
+  border: 1px solid var(--color-iron);
+  border-radius: 0.5rem;
+  margin-top: 40px;
+}
+
 
 #gridcontrol {
   padding-top: 25px;
@@ -88,25 +181,38 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
 }
 
+#bg-color {
+  display: flex;
+  justify-content: space-between;
+}
+
 #b1 {
   background-color: #5352ed;
 }
 
 #b2 {
-  background-color: #e8f3e8;
+  background-color: #96a1eb;
 }
 
 #b3 {
   background-color: #49c5b6;
 }
 
-#imageUpload {
-  padding-top: 25px;
-  display: block;
+#b4 {
+  background-color: #e8f3e8;
 }
 
+#b5 {
+  background-color: #ffffff;
+}
+
+#b6 {
+  background-color: #000000;
+}
+
+
 .downloadimage {
-  padding-top: 25px;
+  padding: 25px;
 }
 #saveButton {
   cursor: pointer;

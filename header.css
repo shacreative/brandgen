@@ -1,4 +1,4 @@
-.header {
+#nav {
     height: 72px;
     display: flex;
     flex-direction: row;
@@ -11,7 +11,8 @@
     background-color: white;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: rgb(228, 228, 228);
+    border-bottom-color: rgba(63,63,55,.15);
+    transition: top 0.3s; /* Transition effect when sliding down (and up) */
   }
   
   .left-section {
@@ -21,7 +22,7 @@
   }
   
   
-  .youtube-logo {
+  .company-logo {
     height: 35px;
     
   }
