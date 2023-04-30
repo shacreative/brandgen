@@ -57,10 +57,11 @@
         <div class="control-section">
           <div class="control-panel-grid">
             <div id="intro-control">
-              <div class="intro-title">Welcome</div>
+              <div class="intro-title">Control Panel</div>
               <p id="intro-text">
                 Use this control panel to generate your <br />
-                branded social media image. Images save at 1080 x 1080 pixels.
+                branded social media post. Images download at 1080 x 1080 px.
+                File upload types: JPG & PNG (Max: 1mb)
               </p>
             </div>
 
@@ -74,11 +75,11 @@
 
             <div id="gridcontrol">
               <div class="control-title">Grid</div>
-              <input type="range" min="1" max="8" id="gridSlider" />
+              <input type="range" min="1" max="6" value="0" id="gridSlider" />
             </div>
 
             <div id="bg-control">
-              <div class="control-title">Background Color</div>
+              <div class="bgc-title">Background Color</div>
               <div id="bg-color">
                 <button id="b1" value="#5352ed">Indigo</button>
                 <button id="b2" value="#96a1eb">Lilac</button>
@@ -86,24 +87,28 @@
                 <button id="b4" value="#e8f3e8">Mint</button>
                 <button id="b5" value="#FFFFFF">White</button>
                 <button id="b6" value="#000000">Black</button>
+                <button id="b7" value="#fefaf4">Biege</button>
               </div>
             </div>
 
             <div>
-              <div class="control-title">Text</div>
+              <div class="text-title">Text</div>
               <input
                 type="text"
                 id="textInput"
                 name="name"
                 required
                 minlength="4"
-                maxlength="8"
-                size="10"
+                maxlength="50"
+                size="8"
+                rows="3"
+                cols="60"
+                placeholder="Enter text here"
               />
             </div>
 
             <div id="file-control">
-              <div class="control-title">Download</div>
+              <div class="download-title">Download</div>
               <div>
                 <button id="saveButton">Download Image</button>
               </div>

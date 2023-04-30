@@ -105,7 +105,7 @@ canvas {
 
 .control-panel-grid {
   display: grid;
-  grid-template-rows: 190px 210px 150px 170px 180px 110px;
+  grid-template-rows: 210px 200px 140px 140px 205px 120px;
   background-color: #ffff;
   border-radius: 1rem;
   box-shadow: 0 2px 4px 0 rgba(63,63,55,.15);
@@ -116,7 +116,7 @@ canvas {
 
 }
 
-.control-title, .intro-title {
+.control-title {
   display: block;
   font-family: "soehne";
   font-size: 13pt;
@@ -259,8 +259,8 @@ input[type=range]:hover::-moz-range-thumb {
 
 #bg-color button {
   display: inline-flex;
-  height: 40px;
-  width: 40px;
+  height: 33px;
+  width: 33px;
   color: transparent;
   border-radius: 2rem;
   cursor: pointer;
@@ -299,7 +299,7 @@ input[type=range]:hover::-moz-range-thumb {
 
 #b5 {
   background-color: #ffffff;
-  border: 1px solid #e1e1e1;
+  border: 1px solid #d3d3d3;
 }
 
 #b6 {
@@ -307,7 +307,12 @@ input[type=range]:hover::-moz-range-thumb {
   border: 0px solid;
 }
 
-#b1:hover, #b2:hover, #b3:hover,#b4:hover {
+#b7 {
+  background-color: #fefaf4;
+  border: 1px solid #d3d3d3;
+}
+
+#b1:hover, #b2:hover, #b3:hover,#b4:hover, #b7:hover {
   border: 1.5px solid #222222
 }
 
@@ -317,6 +322,19 @@ input[type=range]:hover::-moz-range-thumb {
 
 #b6:hover{
   border: 1.5px solid #e1e1e1
+}
+
+
+.text-title, .download-title, .bgc-title {
+  display: block;
+  font-family: "soehne";
+  font-size: 13pt;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+  border-bottom: 2px solid #e8e8e8 ;
+  letter-spacing: .1px;
+  padding: 0 0 0.60rem
 }
 
 input[type=text], select {
@@ -333,8 +351,12 @@ input[type=text], select {
 }
 
 input[type=text], select, textarea{
-  content: 'Enter Text';
-  rows: "10";
+  height: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10pt;
+  resize: none;
+  padding: 10px;
+  white-space: nowrap;
 }
 
 #saveButton {

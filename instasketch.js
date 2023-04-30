@@ -5,7 +5,7 @@ let margin;
 // let instaCanvas;
 let bgColour = "transparent";
 let gridOption = 6;
-let currentText = "Enter text"; 
+let currentText = "Text here"; 
 let img;
 let maskCanvas;
 //let input;
@@ -20,6 +20,7 @@ let tealButton = document.getElementById("b3");
 let mintButton = document.getElementById("b4");
 let whiteButton = document.getElementById("b5");
 let blackButton = document.getElementById("b6");
+let biegeButton = document.getElementById("b7");
 let gridSlider = document.getElementById("gridSlider");
 let textInput = document.getElementById("textInput");
 // let imageUpload = document.getElementById("imageUpload");
@@ -64,6 +65,10 @@ blackButton.addEventListener("click", (e) => {
   colorButton(e);
 });
 
+biegeButton.addEventListener("click", (e) => {
+  colorButton(e);
+});
+
 
 saveButton.addEventListener("click", () => {
   // let combinedCanvas = instaCanvas;
@@ -100,7 +105,7 @@ function draw() {
   // instaCanvas.background(255, 0, 0);
   gridOption = gridSlider.value;
 
-  stroke(0);
+  stroke('#222222');
   strokeWeight(3);
 
   // grid
@@ -112,27 +117,40 @@ function draw() {
 function makeText(tSize) {
   strokeWeight(0);
   textSize(tSize);
-  fill(10);
+  fill('#222222');
   textAlign(LEFT, BOTTOM);
-  if (gridOption == 1) {
+  //if (gridOption == 1) {
+  //textAlign(CENTER, CENTER);
+  //text(currentText, cWidth / 2, cWidth / 2);
+
+ if (gridOption == 2) {
     textAlign(CENTER, CENTER);
     text(currentText, cWidth / 2, cWidth / 2);
-  } else if (gridOption == 2) {
+
+// else if (gridOption == 3) {
+  //textAlign(CENTER, CENTER);
+  //text(currentText, cWidth / 2, cWidth / 2);
+  // fill(88, 102, 153);
+
+  } else if (gridOption == 4) {
     textAlign(CENTER, CENTER);
     text(currentText, cWidth / 2, cWidth / 2);
     
-  } else if (gridOption == 3) {
-    text(currentText, cWidth / 2 + margin + 90, margin + 290);
+  } else if (gridOption == 5) {
+    textAlign(CENTER);
+    textWrap(WORD);
+    text(currentText, cWidth / 2 -100, cHeight / 2 + 350 );
 
-  } else if (gridOption == 4) {
-    text(currentText, cWidth / 2 -100, cHeight / 2 + 350);
+  } else if (gridOption == 6) {
+    textAlign(CENTER);
+    text(currentText, cWidth / 2 + margin + 90, margin + 290);
   }
 }
 
 function makeGrid() {
   fill(255);
   // make a new image from the uploaded/default image
-  if (img && gridOption != 3) {
+  if (img && gridOption != 6) {
     let iWidth = img.width;
     let iHeight = img.height;
     let iRatio = iWidth / iHeight;
@@ -149,7 +167,7 @@ function makeGrid() {
   }
 
 
-    ////////////// GRID OPTION 1 ////////////// 
+    ////////////// GRID OPTION 1 IMAGE ONLY ////////////// 
 
   if (gridOption == 1) {
     // draw mask and circle
@@ -162,9 +180,21 @@ function makeGrid() {
     rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
   } 
   
-    ////////////// GRID OPTION 2 ////////////// 
 
-  else if (gridOption == 2) {
+  ////////////// GRID OPTION 2 TEXT ONLY ////////////// 
+
+  if (gridOption == 2) {
+    // draw mask and circle
+    maskCanvas.rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
+    
+    noFill();
+    rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
+  } 
+
+
+    ////////////// GRID OPTION 3 IMAGE ONLY ////////////// 
+
+  else if (gridOption == 3) {
     noFill();
     rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
     let centerX = cWidth / 2;
@@ -182,9 +212,47 @@ function makeGrid() {
 
   } 
 
-    ////////////// GRID OPTION 3 ////////////// 
+
+      ////////////// GRID OPTION 4 TEXT ONLY ////////////// 
+
+      else if (gridOption == 4) {
+        noFill();
+        rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
+        let centerX = cWidth / 2;
+        let centerY = cHeight / 2;
+        let circleRadius = min(cWidth, cHeight) / 2 - margin * 2;
+    
+      
+        noFill();
+        circle(centerX, centerY, circleRadius * 2);
+    
+      } 
+
+       ////////////// GRID OPTION 5 IMAGE + TEXT ////////////// 
+
+      else if (gridOption == 5) {
+        // draw mask and circle
+        maskCanvas.rect(margin, margin, cWidth - margin * 2, (2 * cHeight / 3) - margin - 14);
+        if (img) {
+          newImg.mask(maskCanvas);
+          image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
+        }
+        noFill();
+        rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
+    
+        
+        rect(
+          margin,
+          cHeight - (cHeight - margin * 2) / 3 - margin,
+          cWidth - margin * 2,
+          (cHeight - margin * 2) / 3
+        );
+    
+      }
+
+    ////////////// GRID OPTION 6 IMAGE + TEXT ////////////// 
   
-  else if (gridOption == 3) {
+  else if (gridOption == 6) {
     // draw mask and circle
     maskCanvas.rect(
       margin + (cWidth - margin * 2) / 2,
@@ -248,34 +316,6 @@ function makeGrid() {
     // line(margin, cHeight / 1.4, cWidth - margin, cHeight / 1.4);
     // rect(margin, margin, cWidth - margin * 2, cHeight / 1.44);
     // rect(margin, cHeight / 1.4, cWidth - margin * 2, cHeight / 4);
-
-
-
-
-    ////////////// GRID OPTION 4 ////////////// 
-
-    else if (gridOption == 4) {
-      // draw mask and circle
-      maskCanvas.rect(margin, margin, cWidth - margin * 2, (2 * cHeight / 3) - margin - 14);
-      if (img) {
-        newImg.mask(maskCanvas);
-        image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
-      }
-      noFill();
-      rect(margin, margin, cWidth - margin * 2, cHeight - margin * 2);
-  
-      
-      rect(
-        margin,
-        cHeight - (cHeight - margin * 2) / 3 - margin,
-        cWidth - margin * 2,
-        (cHeight - margin * 2) / 3
-      );
-  
-    }
-  
-     
-
 
     
 }
