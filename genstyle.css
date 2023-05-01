@@ -99,7 +99,7 @@ canvas {
   width: 1080px;
   border-radius: 0.5rem;
   padding: 0.15rem;
-  box-shadow: 0 2px 4px 0 rgba(63,63,55,.15);
+  box-shadow: 0 2px 4px 0 hsla(60, 7%, 23%, 0.15);
     
 }
 
