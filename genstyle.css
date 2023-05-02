@@ -4,32 +4,32 @@ body {
   padding: 0;
   background: #f6f9fc;
   appearance: none;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 canvas {
   display: block;
 }
-
 
 @font-face {
   font-family: "soehne";
   src: url(./fonts/soehne-fett.woff2) format("woff2");
 }
 
-  @font-face {
+@font-face {
   font-family: "soehne";
-    src: url(../fonts/soehne-kraftig.woff2) format("woff2");
+  src: url(../fonts/soehne-kraftig.woff2) format("woff2");
 }
 
 @font-face {
   font-family: "TiemposHeadline";
-  src: url(../fonts/TiemposHeadline/tiempos-headline-medium.woff2) format("woff2")}
-
-  @font-face {
-    font-family: "TiemposHeadline";
-    src: url(./fonts/TiemposHeadline/tiempos-headline-light.woff2) format("woff2");
+  src: url(../fonts/TiemposHeadline/tiempos-headline-medium.woff2)
+    format("woff2");
 }
 
+@font-face {
+  font-family: "TiemposHeadline";
+  src: url(./fonts/TiemposHeadline/tiempos-headline-light.woff2) format("woff2");
+}
 
 .intro-section {
   display: block;
@@ -40,19 +40,16 @@ canvas {
   box-sizing: border-box;
 }
 
-.intro-container
-{
+.intro-container {
   margin-left: 70px;
   margin-right: 70px;
   padding-top: 130px;
   background-color: #e8f3e8;
-
 }
 
-
-#h1{
+#h1 {
   display: block;
-  font-family: 'TiemposHeadline', serif;
+  font-family: "TiemposHeadline", serif;
   font-weight: 600;
   font-size: 45px;
   color: #222222;
@@ -67,7 +64,7 @@ canvas {
   align-items: center;
   border-style: solid;
   border-width: 0.5px;
-  border-color: rgba(63,63,55,.15);
+  border-color: rgba(63, 63, 55, 0.15);
 }
 
 /* .control-panel-divder1{
@@ -89,18 +86,16 @@ canvas {
   column-gap: 50px;
   grid-template-columns: 1fr 1fr;
   box-sizing: border-box;
-
 }
 #canvas-parent {
   display: inline-block;
-  /* height: max(50vh, 50vw);
-  width: max(50vh, 50vw); */
-  height: 1080px;
-  width: 1080px;
+  height: max(50vh, 50vw);
+  width: max(50vh, 50vw);
+  /* height: 1080px;
+  width: 1080px; */
   border-radius: 0.5rem;
   padding: 0.15rem;
   box-shadow: 0 2px 4px 0 hsla(60, 7%, 23%, 0.15);
-    
 }
 
 .control-panel-grid {
@@ -108,12 +103,10 @@ canvas {
   grid-template-rows: 210px 200px 140px 140px 205px 120px;
   background-color: #ffff;
   border-radius: 1rem;
-  box-shadow: 0 2px 4px 0 rgba(63,63,55,.15);
-  padding: 0.5rem 2rem;
-  height: 1070px;
-  width: 280px;
-  
-
+  box-shadow: 0 2px 4px 0 rgba(63, 63, 55, 0.15);
+  padding: 0.5rem 2rem 2rem 2rem;
+  /* height: 1070px;
+  width: 280px; */
 }
 
 .control-title {
@@ -123,9 +116,9 @@ canvas {
   margin-top: 15px;
   margin-bottom: 35px;
   align-items: center;
-  border-bottom: 2px solid #e8e8e8 ;
-  letter-spacing: .1px;
-  padding: 0 0 0.60rem
+  border-bottom: 2px solid #e8e8e8;
+  letter-spacing: 0.1px;
+  padding: 0 0 0.6rem;
 }
 
 .intro-title {
@@ -135,11 +128,10 @@ canvas {
   margin-top: 35px;
   margin-bottom: 15px;
   align-items: center;
-  border-bottom: 2px solid #e8e8e8 ;
-  letter-spacing: .1px;
-  padding: 0 0 0.60rem
+  border-bottom: 2px solid #e8e8e8;
+  letter-spacing: 0.1px;
+  padding: 0 0 0.6rem;
 }
-
 
 /* input#p5input:before {
   content: 'Choose a file (PNG or JPG)';
@@ -159,8 +151,7 @@ input#p5input:hover:before {
 }*/
 
 input#p5input::file-selector-button {
-  
-  content: 'Choose a file (PNG or JPG)';
+  content: "Choose a file (PNG or JPG)";
   display: block;
   background: #5352ed;
   color: #fff;
@@ -175,34 +166,27 @@ input#p5input::file-selector-button {
 }
 
 input#p5input:hover::file-selector-button {
-   background: #3742fa;
+  background: #3742fa;
 }
 
 #intro-text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 9pt;
   line-height: 15pt;
   letter-spacing: 0.02em;
   margin: none;
   color: #878787;
-
 }
 
-
-
-#gridSlider{
+#gridSlider {
   display: block;
   width: 100%;
-  
 }
 
-#file-control{
+#file-control {
   display: block;
   width: 100%;
-  
 }
-
-
 
 /* CSS for Slider Grid option control  */
 input[type="range"]::-webkit-slider-runnable-track {
@@ -221,7 +205,6 @@ input[type="range"]::-moz-range-track {
   width: auto;
 }
 
-
 /* Thumb Styles for: Chrome, Safari, Opera, and Edge */
 input[id="gridSlider"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -232,12 +215,11 @@ input[id="gridSlider"]::-webkit-slider-thumb {
   z-index: 1;
 }
 
-input[type=range]:hover::-webkit-slider-thumb {
-  background-color:  #3742fa;
+input[type="range"]:hover::-webkit-slider-thumb {
+  background-color: #3742fa;
   cursor: pointer;
   transition-duration: 0.2s;
 }
-
 
 /* Thumb Styles for: Firefox */
 input[type="range"]::-moz-range-thumb {
@@ -249,13 +231,11 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Hover Styles for: Firefox */
-input[type=range]:hover::-moz-range-thumb {
-  background:  #3742fa;
+input[type="range"]:hover::-moz-range-thumb {
+  background: #3742fa;
   cursor: pointer;
   transition-duration: 0.2s;
 }
-
-
 
 #bg-color button {
   display: inline-flex;
@@ -269,15 +249,13 @@ input[type=range]:hover::-moz-range-thumb {
   appearance: none;
 }
 
-
-
 #bg-color {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
 
-#b1{
+#b1 {
   background-color: #5352ed;
   border: 0px solid;
 }
@@ -312,32 +290,38 @@ input[type=range]:hover::-moz-range-thumb {
   border: 1px solid #d3d3d3;
 }
 
-#b1:hover, #b2:hover, #b3:hover,#b4:hover, #b7:hover {
-  border: 1.5px solid #222222
+#b1:hover,
+#b2:hover,
+#b3:hover,
+#b4:hover,
+#b7:hover {
+  border: 1.5px solid #222222;
 }
 
-#b5:hover{
-  border: 1.5px solid #222222
+#b5:hover {
+  border: 1.5px solid #222222;
 }
 
-#b6:hover{
-  border: 1.5px solid #e1e1e1
+#b6:hover {
+  border: 1.5px solid #e1e1e1;
 }
 
-
-.text-title, .download-title, .bgc-title {
+.text-title,
+.download-title,
+.bgc-title {
   display: block;
   font-family: "soehne";
   font-size: 13pt;
   margin-top: 15px;
   margin-bottom: 20px;
   align-items: center;
-  border-bottom: 2px solid #e8e8e8 ;
-  letter-spacing: .1px;
-  padding: 0 0 0.60rem
+  border-bottom: 2px solid #e8e8e8;
+  letter-spacing: 0.1px;
+  padding: 0 0 0.6rem;
 }
 
-input[type=text], select {
+input[type="text"],
+select {
   appearance: none;
   width: 100%;
   padding: 12px 20px;
@@ -347,12 +331,14 @@ input[type=text], select {
   border: 1px solid #e1e1e1;
   border-radius: 0.25rem;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-input[type=text], select, textarea{
+input[type="text"],
+select,
+textarea {
   height: 100px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 10pt;
   resize: none;
   padding: 10px;
@@ -370,9 +356,8 @@ input[type=text], select, textarea{
   border: 1px solid;
   border-radius: 0.5rem;
   width: 100%;
-
 }
 
 #saveButton:hover {
   background: #3742fa;
-} 
+}
