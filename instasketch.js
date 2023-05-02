@@ -372,7 +372,11 @@ function makeGrid() {
       (height - margin * 2) / 2
     );
 
-    circle(795, 795, 400);
+    circle(
+      ((width - margin * 2) * 3) / 4 + margin,
+      ((width - margin * 2) * 3) / 4 + margin,
+      (height - margin * 6) / 2
+    );
     rect(
       margin + (width - margin * 2) / 2,
       margin + (width - margin * 2) / 2,
