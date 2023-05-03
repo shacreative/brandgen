@@ -86,7 +86,7 @@ saveButton.addEventListener("click", () => {
   maskCanvas.clear();
   makeGrid();
   makeText();
-  save(myCanvas, "MasterWorks_1080x1080.jpg");
+  saveCanvas("MasterWorks_1080x1080", "jpg");
   resizeCanvas(cWidth, cHeight);
   maskCanvas = createGraphics(cWidth, cHeight);
 });
