@@ -4,6 +4,9 @@ let cHeight;
 let margin;
 // let instaCanvas;
 let bgColour = "transparent";
+let strokeColour = "#272727";
+let darkStrokeColour = "#E3E3E3";
+let currentStrokeColour = strokeColour;
 let gridOption = 1;
 let tSize = 64;
 let currentText = "text here";
@@ -119,7 +122,13 @@ function setup() {
 
 function draw() {
   background(bgColour);
+  bgColour === "#000000" || bgColour === "#5352ed"
+    ? (currentStrokeColour = darkStrokeColour)
+    : (currentStrokeColour = strokeColour);
+
+  stroke(currentStrokeColour);
   maskCanvas.clear();
+  // do grid then text
   makeGrid();
   makeText();
 }
@@ -128,7 +137,7 @@ function makeText() {
   strokeWeight(0);
   textSize((cWidth / 1080) * tSize);
   textFont("inter");
-  fill("#272727");
+  fill(currentStrokeColour);
   textStyle(BOLD);
   textAlign(LEFT, BOTTOM);
 
@@ -206,7 +215,6 @@ function makeText() {
 
 function makeGrid() {
   strokeWeight(3);
-  stroke(39, 39, 39);
   fill(255);
   // make a new image from the uploaded/default image
   if (img && gridOption != 6) {
@@ -416,7 +424,7 @@ function makeGrid() {
         iHeight
       );
       newImg.mask(maskCanvas);
-      image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
+      image(newImg, 0, 0);
     }
     noFill();
 
