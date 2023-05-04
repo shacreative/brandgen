@@ -56,7 +56,7 @@ canvas {
   text-align: center;
 }
 
-.divider1 {
+/*.divider1 {
   display: block;
   width: auto;
   margin-left: 70px;
@@ -65,7 +65,7 @@ canvas {
   border-style: solid;
   border-width: 0.5px;
   border-color: rgba(63, 63, 55, 0.15);
-}
+}*/
 
 /* .control-panel-divder1{
   display: block;
@@ -81,11 +81,11 @@ canvas {
   margin-top: 60px;
   margin-bottom: 50px;
   margin-left: 70px;
-  margin-right: 70px;
+  margin-right: 10px;
   display: grid;
-  column-gap: 50px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.6fr 0.25fr;
   box-sizing: border-box;
+  column-gap: 30px;
 }
 #canvas-parent {
   display: inline-block;
@@ -100,7 +100,7 @@ canvas {
 
 .control-panel-grid {
   display: grid;
-  grid-template-rows: 210px 200px 140px 140px 205px 120px;
+  grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
   background-color: #ffff;
   border-radius: 1rem;
   box-shadow: 0 2px 4px 0 rgba(63, 63, 55, 0.15);
@@ -178,15 +178,18 @@ input#p5input:hover::file-selector-button {
   color: #878787;
 }
 
-#gridSlider {
-  display: block;
-  width: 100%;
-}
-
 #file-control {
   display: block;
   width: 100%;
+  margin-bottom: 10%;
 }
+
+#gridSlider {
+  display: block;
+  width: 100%;
+  margin-bottom: 15%;
+}
+
 
 /* CSS for Slider Grid option control  */
 input[type="range"]::-webkit-slider-runnable-track {
@@ -247,12 +250,14 @@ input[type="range"]:hover::-moz-range-thumb {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  margin-top: 3%;
+  margin-bottom: 8%;
 }
 
 #bg-color {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-between
 }
 
 #b1 {
@@ -321,7 +326,7 @@ input[type="range"]:hover::-moz-range-thumb {
 }
 
 input[type="text"],
-select {
+textarea {
   appearance: none;
   width: 100%;
   padding: 12px 20px;
@@ -343,6 +348,7 @@ textarea {
   resize: none;
   padding: 10px;
   white-space: nowrap;
+  width: 100%; /* Set the width of the textarea to 100% of the parent div */
 }
 
 #saveButton {

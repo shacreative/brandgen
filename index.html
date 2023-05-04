@@ -59,9 +59,10 @@
             <div id="intro-control">
               <div class="intro-title">Control Panel</div>
               <p id="intro-text">
-                Use this control panel to generate your <br />
-                branded social media post. Images download at 1080 x 1080 px.
-                File upload types: JPG & PNG (Max: 1mb)
+                Use this control panel to generate your branded social media
+                post. Click on the download button to save your image. Images
+                download at 1080 x 1080 px. File upload types: JPG & PNG (Max:
+                1MB)
               </p>
             </div>
 
@@ -95,21 +96,19 @@
 
             <div>
               <div class="text-title">Text</div>
-              <input
-                type="text"
+              <textarea
                 id="textInput"
                 name="name"
                 required
                 minlength="4"
-                maxlength="50"
-                size="8"
                 rows="3"
                 cols="60"
                 placeholder="Enter text here"
-              />
+                maxlength="300"
+              ></textarea>
             </div>
 
-            <div id="file-control">
+            <div id="download-control">
               <div class="download-title">Download</div>
               <div>
                 <button id="saveButton">Download Image</button>
