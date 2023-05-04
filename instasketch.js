@@ -84,6 +84,9 @@ saveButton.addEventListener("click", () => {
   maskCanvas = createGraphics(1080, 1080);
   background(bgColour);
   maskCanvas.clear();
+
+  //set text size that works at 1080x1080
+
   makeGrid();
   makeText();
   saveCanvas("MasterWorks_1080x1080", "jpg");
@@ -123,20 +126,16 @@ function draw() {
 
 function makeText() {
   strokeWeight(0);
-  textSize(tSize);
+  textSize((cWidth / 1080) * tSize);
   textFont("inter");
   fill("#272727");
   textStyle(BOLD);
   textAlign(LEFT, BOTTOM);
 
-
   if (gridOption == 2) {
     textAlign(CENTER, CENTER);
     text(currentText, width / 2, height / 2);
-    
-  }
-
-  else if (gridOption == 3) {
+  } else if (gridOption == 3) {
     // textSize(24);
     textAlign(CENTER, CENTER);
     textWrap(WORD);
@@ -158,22 +157,7 @@ function makeText() {
       width - margin * 4 - (height - margin * 2) / 3,
       (height - margin * 2) / 3 - margin * 2
     );
-  } 
-
-  else if (gridOption == 4) {
-    textAlign(CENTER, CENTER);
-    text(
-      currentText,
-      margin * 2 + (height - margin * 2) / 4,
-      height - (height - margin * 2) / 4,
-      width - margin * 4 - (height - margin * 2) / 4,
-      (height - margin * 2) / 4 - margin * 2
-    );   
-
-    
-  } 
-
-  else if (gridOption == 5) {
+  } else if (gridOption == 4) {
     textAlign(CENTER, CENTER);
     text(
       currentText,
@@ -182,10 +166,24 @@ function makeText() {
       width - margin * 4 - (height - margin * 2) / 4,
       (height - margin * 2) / 4 - margin * 2
     );
-
-    }
-  
-  else if (gridOption == 6) {
+  } else if (gridOption == 5) {
+    textAlign(CENTER, CENTER);
+    // textSize(20);
+    text(
+      currentText,
+      margin * 2 + (height - margin * 2) / 4,
+      height - (height - margin * 2) / 4,
+      width - margin * 4 - (height - margin * 2) / 4,
+      (height - margin * 2) / 4 - margin * 2
+    );
+    fill(255, 0, 0, 100);
+    rect(
+      margin * 2 + (height - margin * 2) / 4,
+      height - (height - margin * 2) / 4,
+      width - margin * 4 - (height - margin * 2) / 4,
+      (height - margin * 2) / 4 - margin * 2
+    );
+  } else if (gridOption == 6) {
     textAlign(CENTER, CENTER);
     textWrap(WORD);
     ////FOR USE TO SEE ALLOCATED TEXT SPACE AND RESTRICTION///
@@ -197,18 +195,18 @@ function makeText() {
     //   (height - margin * 2) / 3 - margin * 2
     // );
     // fill("black");
-    
-     text(
-    currentText,
-    margin + (width - margin * 2) * 3/4,
-    margin + (height - margin * 2) * 1/4
-  );
+
+    text(
+      currentText,
+      margin + ((width - margin * 2) * 3) / 4,
+      margin + ((height - margin * 2) * 1) / 4
+    );
   }
 }
 
 function makeGrid() {
   strokeWeight(3);
-  stroke(39,39,39);
+  stroke(39, 39, 39);
   fill(255);
   // make a new image from the uploaded/default image
   if (img && gridOption != 6) {
@@ -227,7 +225,7 @@ function makeGrid() {
     newImg.copy(img, 0, 0, img.width, img.height, 0, 0, iWidth, iHeight);
   }
 
- ////////////// GRID OPTION 1 ///// LARGE CIRCLE //// IMAGE ONLY //////////////
+  ////////////// GRID OPTION 1 ///// LARGE CIRCLE //// IMAGE ONLY //////////////
   if (gridOption == 1) {
     noFill();
     rect(margin, margin, width - margin * 2, height - margin * 2);
@@ -245,9 +243,8 @@ function makeGrid() {
     circle(centerX, centerY, circleRadius * 2);
   }
 
-
-   ////////////// GRID OPTION 2 ////// LARGE CIRCLE //// TEXT ONLY //////////////
-   else if (gridOption == 2) {
+  ////////////// GRID OPTION 2 ////// LARGE CIRCLE //// TEXT ONLY //////////////
+  else if (gridOption == 2) {
     noFill();
     rect(margin, margin, width - margin * 2, height - margin * 2);
     let centerX = width / 2;
@@ -258,8 +255,8 @@ function makeGrid() {
     circle(centerX, centerY, circleRadius * 2);
   }
 
-   ////////////// GRID OPTION 3 /////// 3X3 GRID ////// IMAGE AND TEXT ////////
-   else if (gridOption == 3) {
+  ////////////// GRID OPTION 3 /////// 3X3 GRID ////// IMAGE AND TEXT ////////
+  else if (gridOption == 3) {
     // draw mask and circle
     maskCanvas.rect(
       margin,
@@ -306,11 +303,10 @@ function makeGrid() {
     );
 
     circle(
-      margin + (height - margin * 2) / 6, 
+      margin + (height - margin * 2) / 6,
       height - (height - margin * 2) / 3 - margin + (height - margin * 2) / 6,
-      (width - margin * 2) / 4.5 + margin,
+      (width - margin * 2) / 4.5 + margin
     );
-    
 
     // full width rectangle (minus margins)
     rect(
@@ -321,146 +317,150 @@ function makeGrid() {
     );
   }
 
-
   ////////////// GRID OPTION 4 /////// 4X4 GRID ////// IMAGE AND TEXT ////////
-
- else if (gridOption == 4) {
-  // draw mask and circle
-  maskCanvas.rect(
-    margin,
-    margin,
-    width - margin * 2,
-    (height - margin * 2) * 3/4
-  );
-  if (img) {
-    let iWidth = img.width;
-    let iHeight = img.height;
-    let iRatio = iWidth / iHeight;
-
-    if (iWidth > iHeight) {
-      iHeight = height;
-      iWidth = iHeight * iRatio;
-    } else {
-      iWidth = width;
-      iHeight = iWidth / iRatio;
-    }
-    newImg = createImage(width, height);
-    newImg.copy(
-      img,
-      0,
-      0,
-      img.width,
-      img.height,
+  else if (gridOption == 4) {
+    // draw mask and circle
+    maskCanvas.rect(
       margin,
-      margin - (height - margin * 2) / 6,
-      width - margin * 2,
-      width - margin * 2
-    );
-    newImg.mask(maskCanvas);
-    image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
-  }
-  noFill();
-  rect(margin, margin, width - margin * 2, height - margin * 2);
-
-  // 1/3 width rectangle (minus margins)
-  rect(
-    margin,
-    height - (height - margin * 2) / 4 - margin,
-    (height - margin * 2) / 4,
-    (height - margin * 2) / 4
-  );
-
-  circle(
-    margin + (height - margin * 2) / 8, 
-    height - (height - margin * 2) / 4 - margin + (height - margin * 2) / 8,
-    (width - margin * 2) / 6.5 + margin,
-  );
-  
-
-  // full width rectangle (minus margins)
-  rect(
-    margin,
-    height - (height - margin * 2) / 4 - margin,
-    width - margin * 2,
-    (height - margin * 2) / 4
-  );
-}
- 
-////////////// GRID OPTION 5 /////// SQUARE 4X4 GRID ////// SQUARE IMAGE WITH TEXT ////////
-
-else if (gridOption == 5) {
-  // draw mask and circle
-  maskCanvas.rect(
-    margin,
-    margin,
-    width - margin * 2,
-    (height - margin * 2) * 3/4
-  );
-  if (img) {
-    let iWidth = img.width;
-    let iHeight = img.height;
-    let iRatio = iWidth / iHeight;
-
-    if (iWidth > iHeight) {
-      iHeight = height;
-      iWidth = iHeight * iRatio;
-    } else {
-      iWidth = width;
-      iHeight = iWidth / iRatio;
-    }
-    newImg = createImage(width, height);
-    newImg.copy(
-      img,
-      0,
-      0,
-      img.width,
-      img.height,
       margin,
-      margin - (height - margin * 2) / 6,
       width - margin * 2,
-      width - margin * 2
+      ((height - margin * 2) * 3) / 4
     );
-    newImg.mask(maskCanvas);
-    image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
+    if (img) {
+      let iWidth = img.width;
+      let iHeight = img.height;
+      let iRatio = iWidth / iHeight;
+
+      if (iWidth > iHeight) {
+        iHeight = height;
+        iWidth = iHeight * iRatio;
+      } else {
+        iWidth = width;
+        iHeight = iWidth / iRatio;
+      }
+      newImg = createImage(width, height);
+      newImg.copy(
+        img,
+        0,
+        0,
+        img.width,
+        img.height,
+        margin,
+        margin - (height - margin * 2) / 6,
+        width - margin * 2,
+        width - margin * 2
+      );
+      newImg.mask(maskCanvas);
+      image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
+    }
+    noFill();
+    rect(margin, margin, width - margin * 2, height - margin * 2);
+
+    // 1/3 width rectangle (minus margins)
+    rect(
+      margin,
+      height - (height - margin * 2) / 4 - margin,
+      (height - margin * 2) / 4,
+      (height - margin * 2) / 4
+    );
+
+    circle(
+      margin + (height - margin * 2) / 8,
+      height - (height - margin * 2) / 4 - margin + (height - margin * 2) / 8,
+      (width - margin * 2) / 6.5 + margin
+    );
+
+    // full width rectangle (minus margins)
+    rect(
+      margin,
+      height - (height - margin * 2) / 4 - margin,
+      width - margin * 2,
+      (height - margin * 2) / 4
+    );
   }
-  noFill();
 
-  rect(margin, margin, width - margin * 2, height - margin * 2);
+  ////////////// GRID OPTION 5 /////// SQUARE 4X4 GRID ////// SQUARE IMAGE WITH TEXT ////////
+  else if (gridOption == 5) {
+    // draw mask and circle
+    maskCanvas.rect(
+      margin + (height - margin * 2) / 4,
+      margin,
+      ((height - margin * 2) * 3) / 4,
+      ((height - margin * 2) * 3) / 4
+    );
 
-  // 1/4 width rectangle (minus margins)
-  rect(
-    margin,
-    height - (height - margin * 2) / 4 - margin,
-    (height - margin * 2) / 4,
-    (height - margin * 2) / 4
-  );
+    if (img) {
+      let iWidth = img.width;
+      let iHeight = img.height;
+      let iRatio = iWidth / iHeight;
 
-  circle(
-    margin + (height - margin * 2) / 8, 
-    height - (height - margin * 2) / 4 - margin + (height - margin * 2) / 8,
-    (width - margin * 2) / 6.5 + margin,
-  );
+      if (iWidth > iHeight) {
+        iHeight = ((height - margin * 2) * 3) / 4;
+        iWidth = iHeight * iRatio;
+      } else {
+        iWidth = ((height - margin * 2) * 3) / 4;
+        iHeight = iWidth / iRatio;
+      }
+      newImg = createImage(width, height);
+      newImg.copy(
+        img,
+        0,
+        0,
+        img.width,
+        img.height,
+        margin +
+          (height - margin * 2) / 4 -
+          (iWidth - ((height - margin * 2) * 3) / 4) / 2,
+        margin - (iHeight - ((height - margin * 2) * 3) / 4) / 2,
+        iWidth,
+        iHeight
+      );
+      newImg.mask(maskCanvas);
+      image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
+    }
+    noFill();
 
-  // left side rectangle 
-  rect(
-    margin,
-    margin,
-    (height - margin * 2) / 4,
-    (height - margin * 2) * 3/4
-  );
-  
+    rect(margin, margin, width - margin * 2, height - margin * 2);
 
-  // full width rectangle (minus margins)
-  rect(
-    margin,
-    height - (height - margin * 2) / 4 - margin,
-    width - margin * 2,
-    (height - margin * 2) / 4
-  );
-}
+    // 1/4 width rectangle (minus margins)
+    rect(
+      margin,
+      height - (height - margin * 2) / 4 - margin,
+      (height - margin * 2) / 4,
+      (height - margin * 2) / 4
+    );
 
+    circle(
+      margin + (height - margin * 2) / 8,
+      height - (height - margin * 2) / 4 - margin + (height - margin * 2) / 8,
+      (width - margin * 2) / 6.5 + margin
+    );
 
-////////////// GRID OPTION 6 /////// 2X2 GRID ////// IMAGE AND TEXT ////////
+    // left side rectangle
+    rect(
+      margin,
+      margin,
+      (height - margin * 2) / 4,
+      ((height - margin * 2) * 3) / 4
+    );
+
+    // full width rectangle (minus margins)
+    rect(
+      margin,
+      height - (height - margin * 2) / 4 - margin,
+      width - margin * 2,
+      (height - margin * 2) / 4
+    );
+    // fill(255, 0, 0, 100);
+    // rect(
+    //   margin + (height - margin * 2) / 4,
+    //   margin,
+    //   ((height - margin * 2) * 3) / 4,
+    //   ((height - margin * 2) * 3) / 4
+    // );
+  }
+
+  ////////////// GRID OPTION 6 /////// 2X2 GRID ////// IMAGE AND TEXT ////////
   else if (gridOption == 6) {
     // draw mask and circle
     maskCanvas.rect(
