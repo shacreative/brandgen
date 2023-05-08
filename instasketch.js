@@ -5,7 +5,7 @@ let margin;
 // let instaCanvas;
 let bgColour = "transparent";
 let strokeColour = "#272727";
-let darkStrokeColour = "#E3E3E3";
+let darkStrokeColour = "#FFFFFF";
 let currentStrokeColour = strokeColour;
 let gridOption = 1;
 let tSize = 64;
@@ -122,7 +122,7 @@ function setup() {
 
 function draw() {
   background(bgColour);
-  bgColour === "#000000" || bgColour === "#5352ed"
+  bgColour === "#000000" //|| bgColour === "#5352ed"
     ? (currentStrokeColour = darkStrokeColour)
     : (currentStrokeColour = strokeColour);
 
@@ -185,13 +185,13 @@ function makeText() {
       width - margin * 4 - (height - margin * 2) / 4,
       (height - margin * 2) / 4 - margin * 2
     );
-    fill(255, 0, 0, 100);
-    rect(
-      margin * 2 + (height - margin * 2) / 4,
-      height - (height - margin * 2) / 4,
-      width - margin * 4 - (height - margin * 2) / 4,
-      (height - margin * 2) / 4 - margin * 2
-    );
+    //fill(255, 0, 0, 100);
+    // rect(
+    //   margin * 2 + (height - margin * 2) / 4,
+    //   height - (height - margin * 2) / 4,
+    //   width - margin * 4 - (height - margin * 2) / 4,
+    //   (height - margin * 2) / 4 - margin * 2
+    // );
   } else if (gridOption == 6) {
     textAlign(CENTER, CENTER);
     textWrap(WORD);
