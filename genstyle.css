@@ -112,6 +112,7 @@ canvas {
 .control-title {
   display: block;
   font-family: "soehne";
+  font-weight: 300;
   font-size: 13pt;
   margin-top: 15px;
   margin-bottom: 35px;
@@ -124,6 +125,7 @@ canvas {
 .intro-title {
   display: block;
   font-family: "TiemposHeadline";
+  font-weight: 600;
   font-size: 24pt;
   margin-top: 35px;
   margin-bottom: 15px;
@@ -214,7 +216,7 @@ input[id="gridSlider"]::-webkit-slider-thumb {
   border: 5px;
   border-radius: 2rem;
   margin-top: -0.4rem; /* Centers thumb on the track */
-  background-color: #6ced52;
+  background-color: #5352ed;
   z-index: 1;
 }
 
@@ -316,6 +318,7 @@ input[type="range"]:hover::-moz-range-thumb {
 .bgc-title {
   display: block;
   font-family: "soehne";
+  font-weight: 300;
   font-size: 13pt;
   margin-top: 15px;
   margin-bottom: 20px;
