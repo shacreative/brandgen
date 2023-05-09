@@ -112,8 +112,8 @@ canvas {
 .control-title {
   display: block;
   font-family: "Inter";
-  font-weight: 300;
-  font-size: 13pt;
+  font-weight: 600;
+  font-size: 11pt;
   margin-top: 15px;
   margin-bottom: 35px;
   align-items: center;
@@ -317,9 +317,9 @@ input[type="range"]:hover::-moz-range-thumb {
 .download-title,
 .bgc-title {
   display: block;
-  font-family: "soehne-fett";
-  font-weight: normal;
-  font-size: 13pt;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 11pt;
   margin-top: 15px;
   margin-bottom: 20px;
   align-items: center;
