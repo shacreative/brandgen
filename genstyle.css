@@ -111,7 +111,7 @@ canvas {
 
 .control-title {
   display: block;
-  font-family: "soehne";
+  font-family: "Inter";
   font-weight: 300;
   font-size: 13pt;
   margin-top: 15px;
@@ -317,7 +317,7 @@ input[type="range"]:hover::-moz-range-thumb {
 .download-title,
 .bgc-title {
   display: block;
-  font-family: "soehne";
+  font-family: "soehne-fett";
   font-weight: normal;
   font-size: 13pt;
   margin-top: 15px;
