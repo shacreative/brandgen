@@ -318,7 +318,7 @@ input[type="range"]:hover::-moz-range-thumb {
 .bgc-title {
   display: block;
   font-family: "soehne";
-  font-weight: 300;
+  font-weight: 200;
   font-size: 13pt;
   margin-top: 15px;
   margin-bottom: 20px;
