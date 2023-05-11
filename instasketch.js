@@ -273,32 +273,9 @@ function makeGrid() {
       ((height - margin * 2) * 2) / 3
     );
     if (img) {
-      let iWidth = img.width;
-      let iHeight = img.height;
-      let iRatio = iWidth / iHeight;
-
-      if (iWidth > iHeight) {
-        iHeight = height;
-        iWidth = iHeight * iRatio;
-      } else {
-        iWidth = width;
-        iHeight = iWidth / iRatio;
-      }
-      newImg = createImage(width, height);
-      newImg.copy(
-        img,
-        0,
-        0,
-        img.width,
-        img.height,
-        margin,
-        margin - (height - margin * 2) / 6,
-        width - margin * 2,
-        width - margin * 2
-      );
-      newImg.mask(maskCanvas);
-      image(newImg, 0, 0, width, height, 0, 0, width, height, COVER, CENTER);
-    }
+      image(
+img,
+margin, margin, width - margin * 2, ((height - margin * 2) * 2) / 3, 0, 0, img.width, img.height, COVER, CENTER, CENTER);}
     noFill();
     rect(margin, margin, width - margin * 2, height - margin * 2);
 
