@@ -312,7 +312,7 @@ margin, margin, width - margin * 2, ((height - margin * 2) * 2) / 3, 0, 0, img.w
       ((height - margin * 2) * 3) / 4
     );
 
-   if (img) {
+    if (img) {
       image(
 img,
 margin, margin, width - margin * 2, ((height - margin * 2) * 3) / 4, 0, 0, img.width, img.height, COVER, CENTER, CENTER);
